@@ -10,6 +10,36 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
+
+        .top-bar {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .user-buttons button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: white;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .user-buttons button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
         header {
             background-color: #fff;
             padding: 10px 20px;
@@ -18,27 +48,33 @@
             align-items: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         header nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #333;
         }
+
         .slider-dynamic {
             position: relative;
             width: 100%;
             height: 400px;
             overflow: hidden;
         }
+
         .slide {
             position: absolute;
             width: 100%;
             height: 100%;
+            object-fit: cover;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+
         .slide.active {
             opacity: 1;
         }
+
         .slider-controls {
             position: absolute;
             bottom: 10px;
@@ -47,6 +83,7 @@
             justify-content: center;
             gap: 10px;
         }
+
         .slider-controls button {
             background-color: #ffffffaa;
             border: none;
@@ -55,6 +92,7 @@
             height: 15px;
             cursor: pointer;
         }
+
         .apps-dynamic {
             display: flex;
             overflow: hidden;
@@ -63,10 +101,12 @@
             padding: 10px;
             align-items: center;
         }
+
         .apps-track {
             display: flex;
             animation: scrollApps 30s linear infinite;
         }
+
         .app-card {
             flex: 0 0 auto;
             width: 220px;
@@ -78,15 +118,18 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .app-card img {
             width: 100%;
             height: 80px;
             object-fit: contain;
         }
+
         @keyframes scrollApps {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -96,6 +139,20 @@
     </style>
 </head>
 <body>
+
+    <!-- LOGOS EN PARTE SUPERIOR -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
+        </div>
+        <div class="user-buttons">
+            <button>Iniciar sesión</button>
+            <button>Regístrate</button>
+        </div>
+    </div>
+
+    <!-- MENÚ PRINCIPAL -->
     <header>
         <div><strong>NUNA - HPC</strong></div>
         <nav>
@@ -107,6 +164,7 @@
         </nav>
     </header>
 
+    <!-- SLIDER -->
     <section class="slider-dynamic">
         <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
         <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg" alt="Portada2">
@@ -122,6 +180,7 @@
         </div>
     </section>
 
+    <!-- APPS EN CARRUSEL -->
     <section class="apps-dynamic">
         <div class="apps-track">
             <div class="app-card"><p>Pronóstico Hidrológico</p></div>
@@ -138,10 +197,12 @@
         </div>
     </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
         <p>© 2025 SENAMHI - Todos los derechos reservados</p>
     </footer>
 
+    <!-- SCRIPT PARA SLIDER -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -159,12 +220,11 @@
             showSlide((currentSlide + 1) % slides.length);
         }
 
-        buttons[currentSlide].style.backgroundColor = '#333';
-        setInterval(nextSlide, 4000); // cambia cada 4 segundos
+        document.addEventListener('DOMContentLoaded', () => {
+            buttons[currentSlide].style.backgroundColor = '#333';
+            setInterval(nextSlide, 4000); // cambia cada 4 segundos
+        });
     </script>
+
 </body>
 </html>
-
- 
-  
-    
