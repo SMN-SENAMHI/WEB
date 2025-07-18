@@ -143,16 +143,22 @@
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
+        const buttons = document.querySelectorAll('.slider-controls button');
 
         function showSlide(index) {
             slides[currentSlide].classList.remove('active');
+            buttons[currentSlide].style.backgroundColor = '#ffffffaa';
             currentSlide = index;
             slides[currentSlide].classList.add('active');
+            buttons[currentSlide].style.backgroundColor = '#333';
         }
 
         function nextSlide() {
             showSlide((currentSlide + 1) % slides.length);
         }
+
+        // Inicializar color del primer botón
+        buttons[currentSlide].style.backgroundColor = '#333';
 
         setInterval(nextSlide, 4000); // cambiar cada 4 segundos
     </script>
