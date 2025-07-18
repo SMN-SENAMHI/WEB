@@ -93,9 +93,44 @@
             background: #001d3d;
             color: white;
         }
-    </style>
+            .top-bar {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .user-buttons button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: white;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .user-buttons button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+</style>
 </head>
 <body>
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
+        </div>
+        <div class="user-buttons">
+            <button>Iniciar sesión</button>
+            <button>Regístrate.</button>
+        </div>
+    </div>
     <header>
         <div><strong>NUNA - HPC</strong></div>
         <nav>
@@ -107,24 +142,23 @@
         </nav>
     </header>
 
-    <section class="slider-dynamic">
-        <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.png" alt="Portada5">
         <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
         <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
         <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
-        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.png" alt="Portada5">
-        <div class="slider-controls">
-            <button onclick="showSlide(0)"></button>
+        <button onclick="showSlide(0)"></button>
             <button onclick="showSlide(1)"></button>
             <button onclick="showSlide(2)"></button>
             <button onclick="showSlide(3)"></button>
             <button onclick="showSlide(4)"></button>
+            <button onclick="showSlide(2)"></button>
+            <button onclick="showSlide(3)"></button>
         </div>
     </section>
 
     <section class="apps-dynamic">
         <div class="apps-track">
-            <div class="app-card"><p>Pronóstico Hidrológico</p></div>
+            <div class="app-card"><img src="/mnt/data/828185e2-e6da-4cb1-ad88-53c038c6cc04.png" alt="Pronóstico Hidrológico"><p>Pronóstico Hidrológico</p></div>
             <div class="app-card"><p>Índice IUV</p></div>
             <div class="app-card"><p>Calidad del Aire</p></div>
             <div class="app-card"><p>Estudios e Investigaciones</p></div>
@@ -159,8 +193,10 @@
             showSlide((currentSlide + 1) % slides.length);
         }
 
+        // Inicializar color del primer botón
         buttons[currentSlide].style.backgroundColor = '#333';
-        setInterval(nextSlide, 8000); // cambia cada 4 segundos
+
+        setInterval(nextSlide, 4000); // cambiar cada 4 segundos
     </script>
 </body>
 </html>
