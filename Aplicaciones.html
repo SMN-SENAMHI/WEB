@@ -50,32 +50,37 @@
     }
 
     .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-gap: 30px;
-      max-width: 1400px;
-      width: 100%;
-      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1600px;
+      padding: 40px;
+      margin: 0 auto;
     }
 
     .app-card {
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px;
+      width: 260px;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .app-card img {
-      width: 100%;
-      height: auto;
+      width: 220px;
+      height: 220px;
       object-fit: contain;
     }
 
     .app-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
 
     footer {
