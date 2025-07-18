@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
+      background-color: #f0f0f0;
     }
 
     .top-bar {
@@ -43,9 +43,6 @@
     header {
       background-color: #fff;
       padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,14 +53,6 @@
       margin: 0 15px;
       text-decoration: none;
       color: #333;
-      transition: all 0.3s ease;
-    }
-
-    header nav a:hover,
-    header nav a.active-link {
-      font-weight: bold;
-      color: #007bff;
-      border-bottom: 2px solid #007bff;
     }
 
     .slider-dynamic {
@@ -107,7 +96,7 @@
     .apps-dynamic {
       display: flex;
       overflow: hidden;
-      height: 200px;
+      height: 150px;
       background: #fff;
       padding: 10px;
       align-items: center;
@@ -120,28 +109,20 @@
 
     .app-card {
       flex: 0 0 auto;
-      width: 240px;
-      height: 140px;
+      width: 220px;
+      height: 130px;
       background: #e6f0ff;
       margin: 0 10px;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .app-card img {
-      width: 220px;
-      height: 220px;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-
-    .app-card img:hover {
-      transform: scale(0.83);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 80px;
+      object-fit: contain;
     }
 
     @keyframes scrollApps {
@@ -185,32 +166,6 @@
       filter: brightness(1.3);
     }
 
-    .aplicaciones-section {
-      background-image: url('https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg');
-      background-size: cover;
-      background-position: center;
-      padding: 60px 20px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-gap: 30px;
-      max-width: 1400px;
-      width: 100%;
-      padding: 20px;
-    }
-
-    .apps-grid .app-card {
-      background: rgba(255, 255, 255, 0.85);
-      height: auto;
-      padding: 10px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -220,6 +175,8 @@
   </style>
 </head>
 <body>
+
+  <!-- BARRA SUPERIOR -->
   <div class="top-bar">
     <div class="logo-container">
       <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
@@ -231,77 +188,143 @@
     </div>
   </div>
 
+  <!-- MENÚ -->
   <header>
     <div><strong>NUNA - HPC</strong></div>
     <nav>
-      <a href="#inicio" class="active-link">Inicio</a>
-      <a href="#aplicaciones">Aplicaciones</a>
+      <a href="#">Inicio</a>
+      <a href="#">¿Qué es NUNA?</a>
+      <a href="#">Aplicaciones</a>
+      <a href="#">Guía de acceso</a>
+      <a href="#">Contactos</a>
     </nav>
   </header>
 
-  <section id="inicio">
-    <div class="slider-dynamic">
-      <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg">
-      <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg">
-      <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg">
-      <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.jpg">
-      <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.jpg">
-      <div class="slider-controls">
-        <button onclick="showSlide(0)"></button>
-        <button onclick="showSlide(1)"></button>
-        <button onclick="showSlide(2)"></button>
-        <button onclick="showSlide(3)"></button>
-        <button onclick="showSlide(4)"></button>
-      </div>
-    </div>
-
-    <div class="apps-dynamic">
-      <div class="apps-track">
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png"></div>
-        <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png"></div>
-      </div>
-    </div>
-
-    <div class="hpc-specs">
-      <div class="hpc-spec">CORES<br><div class="number" data-value="6336"></div></div>
-      <div class="hpc-spec">GPUs<br><div class="number" data-value="6"></div></div>
-      <div class="hpc-spec">RAM (TB)<br><div class="number" data-value="13"></div></div>
-      <div class="hpc-spec">Almacenamiento (TB)<br><div class="number" data-value="4800"></div></div>
-      <div class="hpc-spec">Infiniband Gbps<br><div class="number" data-value="200"></div></div>
+  <!-- SLIDER -->
+  <section class="slider-dynamic">
+    <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg" alt="Portada2">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.jpg" alt="Portada4">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.jpg" alt="Portada5">
+    <div class="slider-controls">
+      <button onclick="showSlide(0)"></button>
+      <button onclick="showSlide(1)"></button>
+      <button onclick="showSlide(2)"></button>
+      <button onclick="showSlide(3)"></button>
+      <button onclick="showSlide(4)"></button>
     </div>
   </section>
 
-  <section id="aplicaciones" class="aplicaciones-section">
-    <div class="apps-grid">
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png"></div>
+  <!-- APPS -->
+  <style>
+  .apps-dynamic {
+    display: flex;
+    overflow: hidden;
+    height: 200px;
+    background: #fff;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .apps-track {
+    display: flex;
+    animation: scrollApps 30s linear infinite;
+  }
+
+  .app-card {
+    flex: 0 0 auto;
+    width: 240px;
+    height: 140px;
+    background: #e6f0ff;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-card img {
+    width: 220px;
+    height: 220px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .app-card img:hover {
+    transform: scale(0.83);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes scrollApps {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<section class="apps-dynamic">
+  <div class="apps-track">
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png">
     </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png">
+    </div>
+  </div>
+</section>
+
+   
+  
+
+
+
+  <!-- HPC SPECS -->
+  <section class="hpc-specs">
+    <div class="hpc-spec">CORES<br><div class="number" data-value="6336"></div></div>
+    <div class="hpc-spec">GPUs<br><div class="number" data-value="6"></div></div>
+    <div class="hpc-spec">RAM (TB)<br><div class="number" data-value="13"></div></div>
+    <div class="hpc-spec">Almacenamiento (TB)<br><div class="number" data-value="4800"></div></div>
+    <div class="hpc-spec">Infiniband Gbps<br><div class="number" data-value="200"></div></div>
   </section>
 
+  <!-- AUDIO -->
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_dab20e8c24.mp3?filename=click-124467.mp3" preload="auto"></audio>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 SENAMHI - Todos los derechos reservados</p>
   </footer>
 
-  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_dab20e8c24.mp3?filename=click-124467.mp3" preload="auto"></audio>
-
+  <!-- JS -->
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
@@ -324,14 +347,17 @@
       setInterval(nextSlide, 4000);
 
       const sound = document.getElementById('click-sound');
+
       document.querySelectorAll('.number').forEach(el => {
         const value = el.getAttribute('data-value');
         el.innerHTML = '';
+
         value.split('').forEach((char, i) => {
           const span = document.createElement('span');
           span.className = 'digit';
           span.textContent = char;
           el.appendChild(span);
+
           setTimeout(() => {
             span.classList.add('visible');
             sound.currentTime = 0;
