@@ -12,32 +12,62 @@
       scroll-behavior: smooth;
     }
 
-    header {
-      background-color: #fff;
-      padding: 10px 20px;
+    /* === BARRA SUPERIOR === */
+    .top-bar {
+      background-color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 8px 20px;
+      border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    header nav a {
-      margin: 0 15px;
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      flex-grow: 1;
+    }
+
+    .main-nav a {
       text-decoration: none;
       color: #333;
-      transition: all 0.3s ease;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
-    header nav a:hover,
-    header nav a.active-link {
-      font-weight: bold;
+    .main-nav a:hover,
+    .main-nav a.active-link {
       color: #007bff;
+      font-weight: bold;
       border-bottom: 2px solid #007bff;
     }
 
+    .user-buttons button {
+      margin-left: 5px;
+      padding: 6px 12px;
+      background-color: white;
+      border: 1px solid #007bff;
+      color: #007bff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .user-buttons button:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    /* === APLICACIONES === */
     .aplicaciones-section {
       background-image: url('https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg');
       background-size: cover;
@@ -120,14 +150,24 @@
 </head>
 <body>
 
-  <!-- MENÚ SUPERIOR -->
-  <header>
-    <div><strong>NUNA - HPC</strong></div>
-    <nav>
+  <!-- BARRA SUPERIOR -->
+  <div class="top-bar">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
+    </div>
+    <nav class="main-nav">
       <a href="index.html">Inicio</a>
+      <a href="index.html#que-es-nuna">¿Qué es NUNA?</a>
       <a href="aplicaciones.html" class="active-link">Aplicaciones</a>
+      <a href="index.html#guia-acceso">Guía de acceso</a>
+      <a href="index.html#contacto">Contactos</a>
     </nav>
-  </header>
+    <div class="user-buttons">
+      <button>Iniciar sesión</button>
+      <button>Regístrate</button>
+    </div>
+  </div>
 
   <!-- SECCIÓN APLICACIONES -->
   <section class="aplicaciones-section">
