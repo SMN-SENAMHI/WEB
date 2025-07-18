@@ -24,23 +24,36 @@
             color: #333;
         }
         .slider-dynamic {
-            display: flex;
+            position: relative;
+            width: 100%;
+            height: 400px;
             overflow: hidden;
-            height: 400px;
-            background: #fff;
         }
-        .slider-track {
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slider-controls {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
             display: flex;
-            animation: scrollSlider 40s linear infinite;
+            justify-content: center;
+            gap: 10px;
         }
-        .slider-track img {
-            width: 100vw;
-            height: 400px;
-            object-fit: cover;
-        }
-        @keyframes scrollSlider {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-200%); }
+        .slider-controls button {
+            background-color: #ffffffaa;
+            border: none;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
         }
         .apps-dynamic {
             display: flex;
@@ -95,16 +108,15 @@
     </header>
 
     <section class="slider-dynamic">
-        <div class="slider-track">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
-            <!-- Repetir para dar efecto de scroll infinito -->
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
+        <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
+        <div class="slider-controls">
+            <button onclick="showSlide(0)"></button>
+            <button onclick="showSlide(1)"></button>
+            <button onclick="showSlide(2)"></button>
+            <button onclick="showSlide(3)"></button>
         </div>
     </section>
 
@@ -127,7 +139,22 @@
     <footer>
         <p>© 2025 SENAMHI - Todos los derechos reservados</p>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+
+        setInterval(nextSlide, 4000); // cambiar cada 4 segundos
+    </script>
 </body>
 </html>
-
-       
