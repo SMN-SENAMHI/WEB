@@ -60,27 +60,54 @@
     }
 
     .app-card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 12px;
-      padding: 20px;
       width: 260px;
       height: 160px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .app-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .app-card img {
+    .card-front {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .card-front img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
     }
 
-    .app-card:hover {
-      transform: scale(1.08);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    .card-back {
+      background: #001d3d;
+      color: white;
+      transform: rotateY(180deg);
+      font-size: 13px;
+      text-align: center;
+      padding: 10px;
     }
 
     footer {
@@ -105,17 +132,139 @@
   <!-- SECCIÓN APLICACIONES -->
   <section class="aplicaciones-section">
     <div class="apps-grid">
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png"></div>
-      <div class="app-card"><img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png"></div>
+
+      <!-- 1 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Pronóstico Hidrológico</strong><br>Simulación diaria de caudales en ríos clave del Perú.<br>Permite anticipar posibles desbordes e inundaciones.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Índice IUV</strong><br>Pronóstico numérico del índice UV por regiones.<br>Advierte sobre niveles de radiación solar y riesgos a la salud.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Calidad del Aire</strong><br>Predicción diaria de contaminantes atmosféricos.<br>Evalúa el impacto sobre la salud en zonas urbanas.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Estudios e Investigaciones</strong><br>Utiliza modelos climáticos de alta resolución.<br>Apoya investigaciones en clima, agua, aire y riesgos.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Dispersión de Cenizas</strong><br>Simula la dispersión de cenizas del volcán Sabancaya y Ubinas.<br>Emite alertas para áreas pobladas y navegación aérea.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Predicción Estacional</strong><br>Predicción de lluvias y temperaturas a escala mensual.<br>Informa sobre cambios en la circulación atmosférica.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Predicción del Tiempo</strong><br>Predicción diaria para todo el país y Sudamérica.<br>Informa sobre cambios en la circulación atmosférica.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Cambio Climático</strong><br>Escenarios de cambio climático al 2050.<br>Soporte técnico para la gestión nacional de adaptación.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Satélite</strong><br>Seguimiento del territorio mediante imágenes satelitales.<br>Permite monitorear nubes, lluvias e incendios.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Índice Meteorológico de Incendios</strong><br>Calcula el riesgo de incendios forestales en todo el país.<br>Integra datos meteorológicos y condiciones de vegetación.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="app-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png">
+          </div>
+          <div class="card-back">
+            <div><strong>Sequía Integrada</strong><br>Une índices climáticos, hidrológicos y agrícolas<br>para evaluar el impacto de la sequía.</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
