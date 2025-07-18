@@ -23,28 +23,37 @@
             text-decoration: none;
             color: #333;
         }
-        .slider {
+        .slider-dynamic {
+            position: relative;
             width: 100%;
             height: 400px;
             overflow: hidden;
-            position: relative;
         }
-        .slides {
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slider-controls {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
             display: flex;
-            width: 400%;
-            animation: slide 20s infinite;
+            justify-content: center;
+            gap: 10px;
         }
-        .slides img {
-            width: 100vw;
-            height: 400px;
-            object-fit: cover;
-        }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-100%); }
-            50% { transform: translateX(-200%); }
-            75% { transform: translateX(-300%); }
-            100% { transform: translateX(0); }
+        .slider-controls button {
+            background-color: #ffffffaa;
+            border: none;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
         }
         .apps-dynamic {
             display: flex;
@@ -98,12 +107,16 @@
         </nav>
     </header>
 
-    <section class="slider">
-        <div class="slides">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
+    <section class="slider-dynamic">
+        <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
+        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
+        <div class="slider-controls">
+            <button onclick="showSlide(0)"></button>
+            <button onclick="showSlide(1)"></button>
+            <button onclick="showSlide(2)"></button>
+            <button onclick="showSlide(3)"></button>
         </div>
     </section>
 
@@ -126,5 +139,28 @@
     <footer>
         <p>© 2025 SENAMHI - Todos los derechos reservados</p>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const buttons = document.querySelectorAll('.slider-controls button');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            buttons[currentSlide].style.backgroundColor = '#ffffffaa';
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            buttons[currentSlide].style.backgroundColor = '#333';
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+
+        // Inicializar color del primer botón
+        buttons[currentSlide].style.backgroundColor = '#333';
+
+        setInterval(nextSlide, 8000); // cambiar cada 4 segundos
+    </script>
 </body>
 </html>
