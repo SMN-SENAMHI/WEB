@@ -135,7 +135,7 @@
       justify-content: space-around;
       align-items: center;
       background-color: #fff;
-      padding: 30px 20px;
+      padding: 40px 20px;
       font-weight: bold;
       color: black;
       font-size: 18px;
@@ -147,14 +147,30 @@
       margin: 20px;
     }
 
-    .hpc-spec span {
-      display: block;
+    .hpc-spec .number {
+      display: inline-block;
       font-size: 40px;
-      transition: transform 0.3s ease;
+      font-weight: bold;
+      transition: transform 0.3s ease, filter 0.2s ease;
+      animation: buildEffect 0.8s ease-out forwards;
+      transform: scale(0.8);
+      opacity: 0;
     }
 
-    .hpc-spec span:hover {
+    .hpc-spec .number:hover {
       transform: scale(1.3);
+      filter: brightness(1.4);
+    }
+
+    @keyframes buildEffect {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) rotateX(90deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+      }
     }
 
     footer {
@@ -167,7 +183,7 @@
 </head>
 <body>
 
-  <!-- LOGOS -->
+  <!-- BARRA SUPERIOR -->
   <div class="top-bar">
     <div class="logo-container">
       <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
@@ -224,28 +240,13 @@
     </div>
   </section>
 
-  <!-- HPC SPECS -->
+  <!-- HPC SPECS ANIMADAS -->
   <section class="hpc-specs">
-    <div class="hpc-spec">
-      CORES
-      <span>6,336</span>
-    </div>
-    <div class="hpc-spec">
-      GPUs
-      <span>6</span>
-    </div>
-    <div class="hpc-spec">
-      RAM (TB)
-      <span>13</span>
-    </div>
-    <div class="hpc-spec">
-      Almacenamiento (TB)
-      <span>4,800</span>
-    </div>
-    <div class="hpc-spec">
-      Infiniband Gbps
-      <span>200</span>
-    </div>
+    <div class="hpc-spec">CORES<br><span class="number" data-target="6336">0</span></div>
+    <div class="hpc-spec">GPUs<br><span class="number" data-target="6">0</span></div>
+    <div class="hpc-spec">RAM (TB)<br><span class="number" data-target="13">0</span></div>
+    <div class="hpc-spec">Almacenamiento (TB)<br><span class="number" data-target="4800">0</span></div>
+    <div class="hpc-spec">Infiniband Gbps<br><span class="number" data-target="200">0</span></div>
   </section>
 
   <!-- FOOTER -->
@@ -274,8 +275,27 @@
     document.addEventListener('DOMContentLoaded', () => {
       buttons[currentSlide].style.backgroundColor = '#333';
       setInterval(nextSlide, 4000);
+
+      // Contador animado
+      const counters = document.querySelectorAll('.number');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // milisegundos
+        const startTime = performance.now();
+
+        function updateCount(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(progress * target);
+          counter.textContent = current.toLocaleString();
+
+          if (progress < 1) requestAnimationFrame(updateCount);
+          else counter.textContent = target.toLocaleString();
+        }
+
+        requestAnimationFrame(updateCount);
+      });
     });
   </script>
 </body>
 </html>
-
