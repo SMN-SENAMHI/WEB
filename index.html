@@ -218,54 +218,90 @@
 
   <!-- APPS -->
   <style>
+  .apps-dynamic {
+    display: flex;
+    overflow: hidden;
+    height: 180px;
+    background: #fff;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .apps-track {
+    display: flex;
+    animation: scrollApps 30s linear infinite;
+  }
+
+  .app-card {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 180px;
+    background: #e6f0ff;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .app-card img {
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    height: 160px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
+
   .app-card img:hover {
     transform: scale(0.83);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes scrollApps {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 </style>
 
 <section class="apps-dynamic">
   <div class="apps-track">
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_estacional.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_clima.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_tiempo.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_timepo.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png">
     </div>
     <div class="app-card">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png" >
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png">
     </div>
   </div>
 </section>
+
 
 
   <!-- HPC SPECS -->
