@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aplicaciones - NUNA HPC</title>
   <style>
     body {
@@ -12,47 +12,28 @@
       scroll-behavior: smooth;
     }
 
-    /* === BARRA SUPERIOR === */
-    .top-bar {
+    /* ==== BARRA SUPERIOR ==== */
+    .barra-superior {
       background-color: white;
+      border-bottom: 1px solid #ccc;
+      z-index: 1000;
+    }
+
+    .barra-superior-contenido {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 8px 20px;
-      border-bottom: 1px solid #ccc;
       flex-wrap: wrap;
-      gap: 10px;
     }
 
-    .logo-container img {
+    .logo-superior img {
       height: 40px;
       margin-right: 10px;
     }
 
-    .main-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      flex-grow: 1;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active-link {
-      color: #007bff;
-      font-weight: bold;
-      border-bottom: 2px solid #007bff;
-    }
-
-    .user-buttons button {
-      margin-left: 5px;
+    .botones-superior button {
+      margin-left: 8px;
       padding: 6px 12px;
       background-color: white;
       border: 1px solid #007bff;
@@ -62,12 +43,43 @@
       transition: all 0.3s ease;
     }
 
-    .user-buttons button:hover {
+    .botones-superior button:hover {
       background-color: #007bff;
       color: white;
     }
 
-    /* === APLICACIONES === */
+    .barra-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .titulo-hpc {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .navegacion {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navegacion a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navegacion a:hover,
+    .navegacion a.active-link {
+      color: #007bff;
+      font-weight: bold;
+      border-bottom: 2px solid #007bff;
+    }
+
+    /* ==== SECCIÓN APLICACIONES ==== */
     .aplicaciones-section {
       background-image: url('https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg');
       background-size: cover;
@@ -140,6 +152,7 @@
       padding: 10px;
     }
 
+    /* ==== FOOTER ==== */
     footer {
       text-align: center;
       padding: 20px;
@@ -151,23 +164,33 @@
 <body>
 
   <!-- BARRA SUPERIOR -->
-  <div class="top-bar">
-    <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
-      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
+  <div class="barra-superior">
+    <div class="barra-superior-contenido">
+      <div class="logo-superior">
+        <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
+        <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
+      </div>
+      <div class="botones-superior">
+        <button>Iniciar sesión</button>
+        <button>Regístrate</button>
+      </div>
     </div>
-    <nav class="main-nav">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#que-es-nuna">¿Qué es NUNA?</a>
-      <a href="aplicaciones.html" class="active-link">Aplicaciones</a>
-      <a href="index.html#guia-acceso">Guía de acceso</a>
-      <a href="index.html#contacto">Contactos</a>
-    </nav>
-    <div class="user-buttons">
-      <button>Iniciar sesión</button>
-      <button>Regístrate</button>
+    <div class="barra-menu">
+      <div class="titulo-hpc"><strong>NUNA - HPC</strong></div>
+      <nav class="navegacion">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#que-es-nuna">¿Qué es NUNA?</a>
+        <a href="aplicaciones.html" class="active-link">Aplicaciones</a>
+        <a href="index.html#guia-acceso">Guía de acceso</a>
+        <a href="index.html#contacto">Contactos</a>
+      </nav>
     </div>
   </div>
+  
+
+   
+  
+ 
 
   <!-- SECCIÓN APLICACIONES -->
   <section class="aplicaciones-section">
