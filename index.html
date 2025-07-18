@@ -233,7 +233,7 @@
     </div>
   </section>
 
-  <!-- HPC SPECS PIXELADAS -->
+  <!-- HPC SPECS -->
   <section class="hpc-specs">
     <div class="hpc-spec">CORES<br><div class="number" data-value="6336"></div></div>
     <div class="hpc-spec">GPUs<br><div class="number" data-value="6"></div></div>
@@ -242,12 +242,15 @@
     <div class="hpc-spec">Infiniband Gbps<br><div class="number" data-value="200"></div></div>
   </section>
 
-  <!-- PIE DE PÁGINA -->
+  <!-- AUDIO -->
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_dab20e8c24.mp3?filename=click-124467.mp3" preload="auto"></audio>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 SENAMHI - Todos los derechos reservados</p>
   </footer>
 
-  <!-- SCRIPT SLIDER Y EFECTOS NÚMEROS -->
+  <!-- JS -->
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
@@ -269,7 +272,8 @@
       buttons[currentSlide].style.backgroundColor = '#333';
       setInterval(nextSlide, 4000);
 
-      // Construcción pixelada de números
+      const sound = document.getElementById('click-sound');
+
       document.querySelectorAll('.number').forEach(el => {
         const value = el.getAttribute('data-value');
         el.innerHTML = '';
@@ -279,15 +283,15 @@
           span.className = 'digit';
           span.textContent = char;
           el.appendChild(span);
+
           setTimeout(() => {
             span.classList.add('visible');
-          }, i * 200); // delay progresivo por dígito
+            sound.currentTime = 0;
+            sound.play();
+          }, i * 200);
         });
       });
     });
   </script>
-
 </body>
 </html>
-
-   
