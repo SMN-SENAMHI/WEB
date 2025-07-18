@@ -1,202 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUNA - HPC</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        header nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-        }
-        .slider-dynamic {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-        }
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slide.active {
-            opacity: 1;
-        }
-        .slider-controls {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .slider-controls button {
-            background-color: #ffffffaa;
-            border: none;
-            border-radius: 50%;
-            width: 15px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .apps-dynamic {
-            display: flex;
-            overflow: hidden;
-            height: 150px;
-            background: #fff;
-            padding: 10px;
-            align-items: center;
-        }
-        .apps-track {
-            display: flex;
-            animation: scrollApps 30s linear infinite;
-        }
-        .app-card {
-            flex: 0 0 auto;
-            width: 220px;
-            height: 130px;
-            background: #e6f0ff;
-            margin: 0 10px;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .app-card img {
-            width: 100%;
-            height: 80px;
-            object-fit: contain;
-        }
-        @keyframes scrollApps {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #001d3d;
-            color: white;
-        }
-            .top-bar {
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-        .logo-container img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        .user-buttons button {
-            margin-left: 10px;
-            padding: 5px 10px;
-            background-color: white;
-            border: 1px solid #007bff;
-            color: #007bff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .user-buttons button:hover {
-            background-color: #007bff;
-            color: white;
-        }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NUNA - HPC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .top-bar {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .user-buttons button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: white;
+      border: 1px solid #007bff;
+      color: #007bff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .user-buttons button:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .slider-dynamic {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slider-controls {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .slider-controls button {
+      background-color: #ffffffaa;
+      border: none;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .apps-dynamic {
+      display: flex;
+      overflow: hidden;
+      height: 150px;
+      background: #fff;
+      padding: 10px;
+      align-items: center;
+    }
+
+    .apps-track {
+      display: flex;
+      animation: scrollApps 30s linear infinite;
+    }
+
+    .app-card {
+      flex: 0 0 auto;
+      width: 220px;
+      height: 130px;
+      background: #e6f0ff;
+      margin: 0 10px;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .app-card img {
+      width: 100%;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    @keyframes scrollApps {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .hpc-specs {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      padding: 40px 20px;
+      font-weight: bold;
+      color: black;
+      font-size: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hpc-spec {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .digit {
+      display: inline-block;
+      opacity: 0;
+      transform: scale(0.2);
+      transition: all 0.4s ease-out;
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .digit.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .digit:hover {
+      transform: scale(1.4);
+      filter: brightness(1.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #001d3d;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
-            <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
-        </div>
-        <div class="user-buttons">
-            <button>Iniciar sesión</button>
-            <button>Regístrate.</button>
-        </div>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="top-bar">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logominam.png" alt="Logo Minam">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/logosenamhi.jpg" alt="Logo Senamhi">
     </div>
-    <header>
-        <div><strong>NUNA - HPC</strong></div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">¿Qué es NUNA?</a>
-            <a href="#">Aplicaciones</a>
-            <a href="#">Guía de acceso</a>
-            <a href="#">Contactos</a>
-        </nav>
-    </header>
+    <div class="user-buttons">
+      <button>Iniciar sesión</button>
+      <button>Regístrate</button>
+    </div>
+  </div>
 
-    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.png" alt="Portada5">
-        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.png" alt="Portada2">
-        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
-        <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.png" alt="Portada4">
-        <button onclick="showSlide(0)"></button>
-            <button onclick="showSlide(1)"></button>
-            <button onclick="showSlide(2)"></button>
-            <button onclick="showSlide(3)"></button>
-            <button onclick="showSlide(4)"></button>
-            <button onclick="showSlide(2)"></button>
-            <button onclick="showSlide(3)"></button>
-        </div>
-    </section>
+  <!-- MENÚ -->
+  <header>
+    <div><strong>NUNA - HPC</strong></div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">¿Qué es NUNA?</a>
+      <a href="#">Aplicaciones</a>
+      <a href="#">Guía de acceso</a>
+      <a href="#">Contactos</a>
+    </nav>
+  </header>
 
-    <section class="apps-dynamic">
-        <div class="apps-track">
-            <div class="app-card"><img src="/mnt/data/828185e2-e6da-4cb1-ad88-53c038c6cc04.png" alt="Pronóstico Hidrológico"><p>Pronóstico Hidrológico</p></div>
-            <div class="app-card"><p>Índice IUV</p></div>
-            <div class="app-card"><p>Calidad del Aire</p></div>
-            <div class="app-card"><p>Estudios e Investigaciones</p></div>
-            <div class="app-card"><p>Dispersión de Cenizas</p></div>
-            <div class="app-card"><p>Predicción Estacional</p></div>
-            <div class="app-card"><p>Predicción del Tiempo</p></div>
-            <div class="app-card"><p>Cambio Climático</p></div>
-            <div class="app-card"><p>Satélite</p></div>
-            <div class="app-card"><p>Índice Meteorológico de Sequía e Incendios</p></div>
-            <div class="app-card"><p>Índice de Sequías</p></div>
-        </div>
-    </section>
+  <!-- SLIDER -->
+  <section class="slider-dynamic">
+    <img class="slide active" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada1.jpg" alt="Portada1">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada2.jpg" alt="Portada2">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada3.jpg" alt="Portada3">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada4.jpg" alt="Portada4">
+    <img class="slide" src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/Portada5.jpg" alt="Portada5">
+    <div class="slider-controls">
+      <button onclick="showSlide(0)"></button>
+      <button onclick="showSlide(1)"></button>
+      <button onclick="showSlide(2)"></button>
+      <button onclick="showSlide(3)"></button>
+      <button onclick="showSlide(4)"></button>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 SENAMHI - Todos los derechos reservados</p>
-    </footer>
+  <!-- APPS -->
+  <section class="apps-dynamic">
+  <div class="apps-track">
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/pronostico_hidrologico.png" alt="Pronóstico Hidrológico">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/radiacion_iuv.png" alt="Índice IUV">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/calidad_de_aire.png" alt="Calidad del Aire">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/estudios_investigaciones.png" alt="Estudios e Investigaciones">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/dispersion_cenizas.png" alt="Dispersión de Cenizas">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_clima.png" alt="Predicción Estacional">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/prediccion_timepo.png" alt="Predicción del Tiempo">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/cambio_climatico.png" alt="Cambio Climático">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/satelite.png" alt="Satélite">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/indice_incendios.png" alt="Índice Meteorológico de Incendios">
+    </div>
+    <div class="app-card">
+      <img src="https://raw.githubusercontent.com/SMN-SENAMHI/WEB/main/GRAFICAS/sequia_integrada.png" alt="Índice de Sequías">
+    </div>
+  </div>
+</section>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const buttons = document.querySelectorAll('.slider-controls button');
+  <!-- HPC SPECS -->
+  <section class="hpc-specs">
+    <div class="hpc-spec">CORES<br><div class="number" data-value="6336"></div></div>
+    <div class="hpc-spec">GPUs<br><div class="number" data-value="6"></div></div>
+    <div class="hpc-spec">RAM (TB)<br><div class="number" data-value="13"></div></div>
+    <div class="hpc-spec">Almacenamiento (TB)<br><div class="number" data-value="4800"></div></div>
+    <div class="hpc-spec">Infiniband Gbps<br><div class="number" data-value="200"></div></div>
+  </section>
 
-        function showSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            buttons[currentSlide].style.backgroundColor = '#ffffffaa';
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            buttons[currentSlide].style.backgroundColor = '#333';
-        }
+  <!-- AUDIO -->
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_dab20e8c24.mp3?filename=click-124467.mp3" preload="auto"></audio>
 
-        function nextSlide() {
-            showSlide((currentSlide + 1) % slides.length);
-        }
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 SENAMHI - Todos los derechos reservados</p>
+  </footer>
 
-        // Inicializar color del primer botón
-        buttons[currentSlide].style.backgroundColor = '#333';
+  <!-- JS -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const buttons = document.querySelectorAll('.slider-controls button');
 
-        setInterval(nextSlide, 4000); // cambiar cada 4 segundos
-    </script>
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      buttons[currentSlide].style.backgroundColor = '#ffffffaa';
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      buttons[currentSlide].style.backgroundColor = '#333';
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % slides.length);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buttons[currentSlide].style.backgroundColor = '#333';
+      setInterval(nextSlide, 4000);
+
+      const sound = document.getElementById('click-sound');
+
+      document.querySelectorAll('.number').forEach(el => {
+        const value = el.getAttribute('data-value');
+        el.innerHTML = '';
+
+        value.split('').forEach((char, i) => {
+          const span = document.createElement('span');
+          span.className = 'digit';
+          span.textContent = char;
+          el.appendChild(span);
+
+          setTimeout(() => {
+            span.classList.add('visible');
+            sound.currentTime = 0;
+            sound.play();
+          }, i * 200);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
